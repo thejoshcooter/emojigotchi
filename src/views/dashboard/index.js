@@ -1,9 +1,10 @@
 import React from 'react'
+import StartButton from './StartButton'
 
 const DashboardView = () => {
     return (
         <>
-            dash view
+            <StartButton />
         </>
     )
 }

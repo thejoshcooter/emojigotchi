@@ -14,6 +14,7 @@ const MainMenu = () => {
                 <Link to='/'>Home</Link>
                 <Link to='/login'>Authentication</Link>
                 <Link to='/dashboard'>Dashboard</Link>
+                <Link to='/game'>Game</Link>
                 <Link to='/settings'>Settings</Link>
             </Navigation>
 
