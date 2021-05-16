@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import StatusBar from './StatusBar'
 import GameScreen from './GameScreen'
 import GameControls from './GameControls'
 
+import * as actions from '../../redux/actions'
+
 const GameView = () => {
+    // stub out useEffect to start cycles
+    // useEffect(() => {
+    //     let cycleInstance
+
+    //     cycleInstance = setInterval(() => {
+    //         console.log('cycle accumulated')
+    //     }, 1000)
+
+    //     return () => clearInterval(cycleInstance)
+    // }, [])
+    
     return (
         <>
         <Container>
