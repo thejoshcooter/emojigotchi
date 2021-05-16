@@ -25,7 +25,7 @@ const MainMenu = () => {
 
 const Container = styled.div`
     width: 100%;
-    height: 4rem;
+    height: 10vh;
     border: 1px solid black;
     display: flex;
     flex-flow: row nowrap;
