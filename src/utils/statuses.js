@@ -1,0 +1,8 @@
+export const IDLING = 'IDLING'
+export const SLEEPING = 'SLEEPING'
+export const POOPING = 'POOPING'
+export const CELEBRATING = 'CELEBRATING'
+export const HUNGRY = 'HUNGRY'
+export const EATING = 'EATING'
+export const MAD = 'MAD'
+export const DEAD = 'DEAD'
