@@ -12,7 +12,7 @@ import * as actions from '../../redux/actions'
 const GameView = () => {
     const dispatch = useDispatch()
     const time = useSelector(state => state.game.time)
-    const CYCLE_RATE = 5000
+    const CYCLE_RATE = 3000
 
     useEffect(() => {
         let cycleInstance

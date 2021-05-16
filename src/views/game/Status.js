@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 const Status = () => {
-    const status = useSelector(state => state.game.status.current)
+    const status = useSelector(state => state.game.status)
     
     return (
         <>
