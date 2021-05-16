@@ -1,11 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 const Status = () => {
+    const status = useSelector(state => state.game.status.current)
+    
     return (
         <>
         <Container>
-            status: happy
+            status: {status}
         </Container>
         </>
     )
