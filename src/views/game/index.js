@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import { useDispatch, useSelector } from 'react-redux'
 import StatusBar from './StatusBar'
 import GameScreen from './GameScreen'
 import GameControls from './GameControls'
@@ -7,16 +8,17 @@ import GameControls from './GameControls'
 import * as actions from '../../redux/actions'
 
 const GameView = () => {
-    // stub out useEffect to start cycles
-    // useEffect(() => {
-    //     let cycleInstance
+    const dispatch = useDispatch()
 
-    //     cycleInstance = setInterval(() => {
-    //         console.log('cycle accumulated')
-    //     }, 1000)
+    useEffect(() => {
+        let cycleInstance
 
-    //     return () => clearInterval(cycleInstance)
-    // }, [])
+        cycleInstance = setInterval(() => {
+            dispatch(actions.generateCycle())
+        }, 3000)
+
+        return () => clearInterval(cycleInstance)
+    }, [])
     
     return (
         <>

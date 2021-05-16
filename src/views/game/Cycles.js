@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 
 const Cycles = () => {
+    const cycles = useSelector(state => state.game.cycle)
+    
     return (
         <>
         <Container>
-            cycles: 0
+            cycles: {cycles}
         </Container>
         </>
     )
