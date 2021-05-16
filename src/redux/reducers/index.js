@@ -7,16 +7,17 @@ export const initialState = {
     game: {
         cycle: 0,
         time: DAY,
-        status: {
-            current: IDLING,
-            expiresIn: null
-        }
+        status: IDLING,
+        wakeCycle: null,
+        sleepCycle: null,
+        hungerCycle: null,
+        deathCycle: null
     }
 }
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case actions.GENERATE_CYCLE:
+        case actions.INCREMENT_CYCLE:
             return {
                 ...state,
                 game: {

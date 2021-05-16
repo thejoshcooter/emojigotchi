@@ -5,10 +5,15 @@ import Reset from './styles/Reset'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import logger from 'redux-logger'
+import { createLogger } from 'redux-logger'
 import reducer from './redux/reducers'
 
 import App from './App'
+
+// create logger
+const logger = createLogger({
+  collapsed: true
+})
 
 // create store
 const store = createStore(reducer, applyMiddleware(thunk, logger))
