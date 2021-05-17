@@ -1,11 +1,17 @@
-const HUNGER_DECAY_RATE = 2
-const FEED_ACTION_RATE = 10
+import {
+    HUNGER_DECAY_RATE,
+    FEED_ACTION_RATE,
+    SLEEP_DECAY_RATE,
+    SLEEP_ACTION_RATE,
+    LOVE_DECAY_RATE,
+    LOVE_ACTION_RATE,
+    EGG,
+    HAPPY,
+    SAD,
+    MAD,
+    DEAD
+} from '../../utils/constants'
 
-const SLEEP_DECAY_RATE = 2
-const SLEEP_ACTION_RATE = 10
-
-const LOVE_DECAY_RATE = 2
-const LOVE_ACTION_RATE = 10
 
 export const INCREMENT_CYCLE = 'INCREMENT_CYCLE'
 export const incrementCycle = () => {
@@ -100,10 +106,10 @@ export const buildCycle = () => {
         dispatch(incrementCycle())
         dispatch(decayStats())
 
-        if (cycle > 2 && status === 'EGG') {
-            dispatch(updateStatus('HAPPY'))
+        if (cycle > 2 && status === EGG) {
+            dispatch(updateStatus(HAPPY))
         } else if (hunger <= 0 || sleep <= 0 || love <= 0) {
-            dispatch(updateStatus('DEAD'))
+            dispatch(updateStatus(DEAD))
         }
     }
 }

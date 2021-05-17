@@ -4,11 +4,13 @@ import { useSelector } from 'react-redux'
 
 const Cycles = () => {
     const cycles = useSelector(state => state.game.cycle)
+    const status = useSelector(state => state.game.status)
     
     return (
         <>
         <Container>
-            cycles: {cycles}
+            <p>cycles: {cycles}</p>
+            <p>status: {status}</p>
         </Container>
         </>
     )
@@ -21,6 +23,11 @@ const Container = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
+
+    p {
+        margin: 0;
+    }
 `
 
 export default Cycles

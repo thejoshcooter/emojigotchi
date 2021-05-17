@@ -20,12 +20,11 @@ const GameControls = () => {
 const Container = styled.div`
     width: 100%;
     max-width: 1200px;
-    height: 20%;
+    height: 10%;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
-    align-items: space-around;
-    background-color: orange;
+    justify-content: space-around;
+    align-items: center;
 
     button {
         width: 15rem;

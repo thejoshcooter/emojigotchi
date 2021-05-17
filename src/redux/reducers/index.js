@@ -1,13 +1,11 @@
 import * as actions from '../actions'
-import { DAY, NIGHT } from '../../utils/times'
-import { EGG } from '../../utils/statuses'
 
 export const initialState = {
     user: {},
     game: {
         cycle: 0,
-        time: DAY,
-        status: EGG,
+        time: 'DAY',
+        status: 'EGG',
         hunger: 100,
         sleep: 100,
         love: 100

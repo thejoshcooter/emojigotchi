@@ -11,7 +11,6 @@ const Status = () => {
     return (
         <>
         <Container>
-            <p>status: {status}</p>
             <p>hunger: {hunger}</p>
             <p>sleep: {sleep}</p>
             <p>love: {love}</p>

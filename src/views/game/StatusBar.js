@@ -17,7 +17,7 @@ const StatusBar = () => {
 const Container = styled.div`
     width: 100%;
     max-width: 1200px;
-    height: 20%;
+    height: 10%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;

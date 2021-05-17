@@ -1,14 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import Pet from './Pet'
-import GameNotifications from './GameNotifications'
 
-const GameScreen = () => {
+const GameNotifications = () => {
     return (
         <>
         <Container>
-            <Pet />
-            <GameNotifications />
+            game notifications here
         </Container>
         </>
     )
@@ -16,13 +13,12 @@ const GameScreen = () => {
 
 const Container = styled.div`
     width: 100%;
-    max-width: 1200px;
-    height: 80%;
+    height: 20%;
+    background-color: purple;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 `
 
-export default GameScreen
+export default GameNotifications
