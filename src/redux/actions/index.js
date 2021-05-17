@@ -1,3 +1,12 @@
+const HUNGER_DECAY_RATE = 2
+const FEED_ACTION_RATE = 10
+
+const SLEEP_DECAY_RATE = 2
+const SLEEP_ACTION_RATE = 10
+
+const LOVE_DECAY_RATE = 2
+const LOVE_ACTION_RATE = 10
+
 export const INCREMENT_CYCLE = 'INCREMENT_CYCLE'
 export const incrementCycle = () => {
     return (dispatch, getState) => {
@@ -17,7 +26,7 @@ export const updateStatus = (status) => {
 export const DECAY_STATS = 'DECAY_STATS'
 export const decayStats = () => {
     return (dispatch, getState) => {
-        const DECAY_RATE = 10
+        const DECAY_RATE = 2
         let hunger = getState().game.hunger
         let sleep = getState().game.sleep
         let love = getState().game.love
@@ -34,6 +43,51 @@ export const decayStats = () => {
     }
 }
 
+export const USER_ACTION_FEED = 'USER_ACTION_FEED'
+export const feed = () => {
+    return (dispatch, getState) => {
+        let hunger = getState().game.hunger
+
+        if (hunger + FEED_ACTION_RATE > 100) {
+            hunger = 100
+        } else {
+            hunger = hunger + FEED_ACTION_RATE
+        }
+
+        dispatch({ type: USER_ACTION_FEED, payload: hunger })
+    }
+}
+
+export const USER_ACTION_SLEEP = 'USER_ACTION_SLEEP'
+export const sleep = () => {
+    return (dispatch, getState) => {
+        let sleep = getState().game.sleep
+
+        if (sleep + SLEEP_ACTION_RATE > 100) {
+            sleep = 100
+        } else {
+            sleep = sleep + SLEEP_ACTION_RATE
+        }
+
+        dispatch({ type: USER_ACTION_SLEEP, payload: sleep })
+    }
+}
+
+export const USER_ACTION_LOVE = 'USER_ACTION_LOVE'
+export const love = () => {
+    return (dispatch, getState) => {
+        let love = getState().game.love
+
+        if (love + LOVE_ACTION_RATE > 100) {
+            love = 100
+        } else {
+            love = love + LOVE_ACTION_RATE
+        }
+
+        dispatch({ type: USER_ACTION_LOVE, payload: love })
+    }
+}
+
 export const BUILD_CYCLE = 'BUILD_CYCLE'
 export const buildCycle = () => {
     return (dispatch, getState) => {
@@ -47,7 +101,7 @@ export const buildCycle = () => {
         dispatch(decayStats())
 
         if (cycle > 2 && status === 'EGG') {
-            dispatch(updateStatus('IDLING'))
+            dispatch(updateStatus('HAPPY'))
         } else if (hunger <= 0 || sleep <= 0 || love <= 0) {
             dispatch(updateStatus('DEAD'))
         }

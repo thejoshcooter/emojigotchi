@@ -42,6 +42,30 @@ const reducer = (state = initialState, action) => {
                     status: action.payload
                 }
             }
+        case actions.USER_ACTION_FEED:
+            return {
+                ...state,
+                game: {
+                    ...state.game,
+                    hunger: action.payload
+                }
+            }
+        case actions.USER_ACTION_SLEEP:
+            return {
+                ...state,
+                game: {
+                    ...state.game,
+                    sleep: action.payload
+                }
+            }
+        case actions.USER_ACTION_LOVE:
+            return {
+                ...state,
+                game: {
+                    ...state.game,
+                    love: action.payload
+                }
+            }
         default:
             return state
     }

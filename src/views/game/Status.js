@@ -21,13 +21,13 @@ const Status = () => {
 }
 
 const Container = styled.div`
-    width: 10rem;
+    width: 20rem;
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    border: 1px solid black;
 
     p {
         margin: 0;
