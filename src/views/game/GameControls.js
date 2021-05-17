@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import * as actions from '../../redux/actions'
+import { feedPet } from '../../redux/actions'
 
 const GameControls = () => {
     return (
         <>
         <Container>
-            game controls
+            <button onClick={() => feedPet()}>feed</button>
         </Container>
         </>
     )

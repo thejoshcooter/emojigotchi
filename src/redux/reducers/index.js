@@ -65,6 +65,15 @@ const reducer = (state = initialState, action) => {
                     status: action.payload
                 }
             }
+        case actions.FEED_PET:
+            return {
+                ...state,
+                game: {
+                    ...state.game,
+                    hungerCycle: action.payload.target,
+                    status: action.payload.status
+                }
+            }
         default:
             return state
     }

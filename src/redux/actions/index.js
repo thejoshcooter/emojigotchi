@@ -59,6 +59,14 @@ export const updateStatusToHungry = () => {
     }
 }
 
+export const FEED_PET = 'FEED_PET'
+export const feedPet = () => {
+    return (dispatch, getState) => {
+        const test = getState()
+        console.log('feed pet')
+    }
+}
+
 export const BUILD_CYCLE = 'BUILD_CYCLE'
 export const buildCycle = () => {
     return (dispatch, getState) => {
