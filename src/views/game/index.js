@@ -43,7 +43,7 @@ const Container = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    background-color: ${props => props.time === DAY ? dayColor : nightColor };
+    background-color: none;
 `
 
 export default GameView

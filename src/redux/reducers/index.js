@@ -8,10 +8,9 @@ export const initialState = {
         cycle: 0,
         time: DAY,
         status: EGG,
-        hatchCycle: null,
-        sleepCycle: null,
-        hungerCycle: null,
-        deathCycle: null
+        hunger: 100,
+        sleep: 100,
+        love: 100
     }
 }
 
@@ -25,53 +24,22 @@ const reducer = (state = initialState, action) => {
                     cycle: action.payload
                 }
             }
-        case actions.GET_NEXT_HATCH_CYCLE:
+        case actions.DECAY_STATS:
             return {
                 ...state,
                 game: {
                     ...state.game,
-                    hatchCycle: action.payload
+                    hunger: action.payload.hunger,
+                    sleep: action.payload.sleep,
+                    love: action.payload.love
                 }
             }
-        case actions.UPDATE_STATUS_TO_HATCHING:
+        case actions.UPDATE_STATUS:
             return {
                 ...state,
                 game: {
                     ...state.game,
                     status: action.payload
-                }
-            }
-        case actions.UPDATE_STATUS_TO_IDLING:
-            return {
-                ...state,
-                game: {
-                    ...state.game,
-                    status: action.payload
-                }
-            }
-        case actions.GET_NEXT_HUNGER_TIME:
-            return {
-                ...state,
-                game: {
-                    ...state.game,
-                    hungerCycle: action.payload
-                }
-            }
-        case actions.UPDATE_STATUS_TO_HUNGRY:
-            return {
-                ...state,
-                game: {
-                    ...state.game,
-                    status: action.payload
-                }
-            }
-        case actions.FEED_PET:
-            return {
-                ...state,
-                game: {
-                    ...state.game,
-                    hungerCycle: action.payload.target,
-                    status: action.payload.status
                 }
             }
         default:

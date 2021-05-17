@@ -7,7 +7,7 @@ const GameControls = () => {
     return (
         <>
         <Container>
-            <button onClick={() => feedPet()}>feed</button>
+            <button>feed</button>
         </Container>
         </>
     )

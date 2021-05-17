@@ -1,89 +1,55 @@
-import {
-    EGG,
-    HATCHING
-} from '../../utils/statuses'
-
-// *** TEMPORARY CONSTANTS ***
-
-
-
-// HELPERS
-
-
-// *** TEMPORARY CONSTANTS ***
-
 export const INCREMENT_CYCLE = 'INCREMENT_CYCLE'
 export const incrementCycle = () => {
     return (dispatch, getState) => {
         let cycle = getState().game.cycle
         cycle = cycle + 1
-
         dispatch({ type: INCREMENT_CYCLE, payload: cycle })
     }
 }
 
-export const GET_NEXT_HATCH_CYCLE = 'GET_NEXT_HATCH_CYCLE'
-export const getNextHatchCycle = (cycle) => {
+export const UPDATE_STATUS = 'UPDATE_STATUS'
+export const updateStatus = (status) => {
     return (dispatch) => {
-        let target = cycle + 5
-        dispatch({ type: GET_NEXT_HATCH_CYCLE, payload: target })
+        dispatch({ type: UPDATE_STATUS, payload: status })
     }
 }
 
-export const UPDATE_STATUS_TO_HATCHING = 'UPDATE_STATUS_TO_HATCHING'
-export const updateStatusToHatching = () => {
-    return (dispatch) => {
-        dispatch({ type: UPDATE_STATUS_TO_HATCHING, payload: 'HATCHING' })
-    }
-}
-
-export const UPDATE_STATUS_TO_IDLING = 'UPDATE_STATUS_TO_IDLING'
-export const updateStatusToIdling = () => {
-    return (dispatch) => {
-        dispatch({ type: UPDATE_STATUS_TO_IDLING, payload: 'IDLING' })
-    }
-}
-
-export const GET_NEXT_HUNGER_TIME = 'GET_NEXT_HUNGER_TIME'
-export const getNextHungerTime = (cycle) => {
-    return (dispatch) => {
-        let target = cycle + 5
-        dispatch({ type: GET_NEXT_HUNGER_TIME, payload: target })
-    }
-}
-
-export const UPDATE_STATUS_TO_HUNGRY = 'UPDATE_STATUS_TO_HUNGRY'
-export const updateStatusToHungry = () => {
-    return (dispatch) => {
-        dispatch({ type: UPDATE_STATUS_TO_HUNGRY, payload: 'HUNGRY' })
-    }
-}
-
-export const FEED_PET = 'FEED_PET'
-export const feedPet = () => {
+export const DECAY_STATS = 'DECAY_STATS'
+export const decayStats = () => {
     return (dispatch, getState) => {
-        const test = getState()
-        console.log('feed pet')
+        const DECAY_RATE = 10
+        let hunger = getState().game.hunger
+        let sleep = getState().game.sleep
+        let love = getState().game.love
+
+        hunger = hunger <= 0 ? 0 : hunger - DECAY_RATE
+        sleep = sleep <= 0 ? 0 : sleep - DECAY_RATE
+        love = love <= 0 ? 0 : love - DECAY_RATE
+
+
+        const payload = { hunger, sleep, love  }
+
+        dispatch({ type: DECAY_STATS, payload: payload })
+
     }
 }
 
 export const BUILD_CYCLE = 'BUILD_CYCLE'
 export const buildCycle = () => {
     return (dispatch, getState) => {
-        const game = getState().game
+        const cycle = getState().game.cycle
+        const status = getState().game.status
+        const hunger = getState().game.hunger
+        const sleep = getState().game.sleep
+        const love = getState().game.love
         
         dispatch(incrementCycle())
+        dispatch(decayStats())
 
-        if (game.status === 'EGG' && game.hatchCycle === null) {
-            dispatch(getNextHatchCycle(game.cycle))
-        } else if (game.cycle === game.hatchCycle) {
-            dispatch(updateStatusToHatching())
-        } else if (game.cycle > game.hatchCycle + 3 && game.status === 'HATCHING') {
-            dispatch(updateStatusToIdling())
-        } else if (game.status === 'IDLING' && game.hungerCycle === null) {
-            dispatch(getNextHungerTime(game.cycle))
-        } else if (game.cycle === game.hungerCycle) {
-            dispatch(updateStatusToHungry())
+        if (cycle > 2 && status === 'EGG') {
+            dispatch(updateStatus('IDLING'))
+        } else if (hunger <= 0 || sleep <= 0 || love <= 0) {
+            dispatch(updateStatus('DEAD'))
         }
     }
 }
