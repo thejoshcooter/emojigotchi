@@ -110,6 +110,10 @@ export const buildCycle = () => {
             dispatch(updateStatus(HAPPY))
         } else if (hunger <= 0 || sleep <= 0 || love <= 0) {
             dispatch(updateStatus(DEAD))
+        } else if ((hunger < 50 && hunger > 25) || (sleep < 50 && sleep > 25) || (love < 50 && love > 25)) {
+            dispatch(updateStatus(SAD))
+        } else if ((hunger < 25 && hunger > 0) || (sleep < 25 && sleep > 0) || (love < 25 && love > 0)) {
+            dispatch(updateStatus(MAD))
         }
     }
 }

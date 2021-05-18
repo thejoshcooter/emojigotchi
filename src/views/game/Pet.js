@@ -35,7 +35,6 @@ const Pet = () => {
 const Container = styled.div`
     width: 100%;
     height: 80%;
-    background-color: orange;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;

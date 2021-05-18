@@ -28,7 +28,7 @@ const Container = styled.div`
 
     button {
         width: 15rem;
-        height: 2rem;
+        height: 3rem;
     }
 `
 
