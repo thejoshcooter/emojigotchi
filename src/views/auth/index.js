@@ -1,13 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useRouteMatch } from 'react-router-dom'
 import LoginForm from './LoginForm'
+import DemoLogin from './DemoLogin'
 
 
 const AuthenticationView = () => {
+    const authType = useRouteMatch().params.type
+    console.log(authType)
+    
     return (
         <>
         <Container>
-            <LoginForm />
+            {authType === 'demo' && <DemoLogin />}
+            {authType === 'login' && <LoginForm />}
         </Container>
         </>
     )

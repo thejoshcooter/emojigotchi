@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const MainMenu = () => {
+    const userAuthenticated = localStorage.getItem('authUser')
+    
     return (
         <>
         <Container>
@@ -12,11 +14,17 @@ const MainMenu = () => {
 
             <Navigation>
                 <Link to='/'>Home</Link>
-                <Link to='/login'>Authentication</Link>
                 <Link to='/dashboard'>Dashboard</Link>
                 <Link to='/game'>Game</Link>
                 <Link to='/settings'>Settings</Link>
             </Navigation>
+
+            <Login>
+                <Link to='/auth/demo'><button>Demo</button></Link>
+                <Link to='/auth/login'><button>Login</button></Link>
+                <Link to='/auth/signup'><button>Signup</button></Link>
+            </Login>
+
 
         </Container>
         </>
@@ -41,6 +49,10 @@ const Navigation = styled.div`
     a {
         margin: 0 1rem;
     }
+`
+
+const Login = styled.div`
+    width: 10rem;
 `
 
 export default MainMenu

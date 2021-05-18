@@ -10,7 +10,7 @@ const App = () => {
   return (
     <>
       <Route path='/' component={MainMenu} />
-      <Route path='/login' component={AuthenticationView} />
+      <Route path='/auth/:type' component={AuthenticationView} />
       <Route path='/dashboard' component={DashboardView} />
       <Route path='/game' component={GameView} />
     </>
