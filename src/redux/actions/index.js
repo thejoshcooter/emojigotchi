@@ -1,3 +1,5 @@
+import * as API from '../../data/data'
+
 import {
     HUNGER_DECAY_RATE,
     FEED_ACTION_RATE,
@@ -117,5 +119,58 @@ export const buildCycle = () => {
         } else if ((hunger < 50 && hunger > 25) || (sleep < 50 && sleep > 25) || (love < 50 && love > 25)) {
             dispatch(updateStatus(SAD))
         } 
+    }
+}
+
+export const FETCH_USERS_REQUEST = 'FETCH_USERS_REQUEST'
+export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
+export const FETCH_USERS_ERROR = 'FETCH_USERS_ERROR'
+export const fetchUsers = () => {
+    return (dispatch) => {
+        dispatch({ type: FETCH_USERS_REQUEST })
+        
+        API.getAllUsers()
+        .then(res => {
+            dispatch({ type: FETCH_USERS_SUCCESS, payload: res })
+        })
+        .catch(e => console.error(e))
+    }
+}
+
+export const DEMO_LOGIN_REQUEST = 'DEMO_LOGIN_REQUEST'
+export const DEMO_LOGIN_SUCCESS = 'DEMO_LOGIN_SUCCESS'
+export const demoLogin = ({ username, password }, history) => {
+    return (dispatch, getState) => {
+        dispatch({ type: DEMO_LOGIN_REQUEST })
+        const user = getState().users.data.filter(user => user.username === username)[0]
+        console.log(user)
+
+        if (user.password === password) {
+            dispatch({ type: DEMO_LOGIN_SUCCESS })
+            localStorage.setItem('authUser', JSON.stringify(user))
+            history.push('/dashboard')
+        } else {
+            alert('invalid credentials')
+        }
+    }
+}
+
+export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+export const LOGIN_ERROR = 'LOGIN_ERROR'
+export const login = ({ username, password }, history) => {
+    return (dispatch, getState) => {
+        dispatch({ type: LOGIN_REQUEST })
+
+        const user = getState().users.data.filter(user => user.username === username)[0]
+
+        if (user.password === password) {
+            dispatch({ type: LOGIN_SUCCESS })
+            localStorage.setItem('authUser', JSON.stringify(user))
+            history.push('/dashboard')
+        } else {
+            dispatch({ type: LOGIN_ERROR })
+            alert('invalid credentials')
+        }
     }
 }

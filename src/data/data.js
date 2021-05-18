@@ -7,7 +7,8 @@ let users = [
         firstName: 'Bob',
         lastName: 'Bobberton',
         email: 'bob@gmail.com',
-        password: 'password123'
+        password: 'password123',
+        demo: true
     },
     {
         id: 1,
@@ -15,7 +16,8 @@ let users = [
         firstName: 'Tom',
         lastName: 'Tommerton',
         email: 'tom@hotmail.com',
-        password: 'password123'
+        password: 'password123',
+        demo: true
     },
     {
         id: 2,
@@ -23,7 +25,16 @@ let users = [
         firstName: 'Jane',
         lastName: 'Doe',
         email: 'jane@yahoo.com',
-        password: 'password123'
+        password: 'password123',
+        demo: true
+    },
+    {
+        id: 3,
+        username: 'admin',
+        firstName: 'admin',
+        lastName: 'admin',
+        password: 'admin123',
+        demo: false
     }
 ]
 

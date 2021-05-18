@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import * as actions from '../../redux/actions'
 
 const LoginForm = () => {
+    const history = useHistory()
+    const dispatch = useDispatch()
+    const [credentials, setCredentials] = useState({
+        username: '',
+        password: ''
+    })
+
+    const handleInput = (e) => {
+        setCredentials({ ...credentials, [e.target.name]: e.target.value })
+    }
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+        dispatch(actions.login(credentials, history))
+    }
+    
     return (
         <>
         <Container>
@@ -16,15 +35,20 @@ const LoginForm = () => {
                 <form>
                     <input 
                         type='text'
+                        name='username'
                         placeholder='username'
+                        value={credentials.username}
+                        onChange={handleInput}
                     />
 
                     <input 
-                        type='text'
+                        type='password'
+                        name='password'
                         placeholder='password'
+                        onChange={handleInput}
                     />
 
-                    <button>login</button>
+                    <button onClick={handleLogin}>login</button>
                 </form>
             </FormSection>
         </Container>

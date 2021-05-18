@@ -1,7 +1,10 @@
 import * as actions from '../actions'
 
 export const initialState = {
-    user: {},
+    users: {
+        fetching: false,
+        data: []
+    },
     game: {
         cycle: 0,
         time: 'DAY',
@@ -62,6 +65,23 @@ const reducer = (state = initialState, action) => {
                 game: {
                     ...state.game,
                     love: action.payload
+                }
+            }
+        case actions.FETCH_USERS_REQUEST:
+            return {
+                ...state,
+                users: {
+                    ...state.users,
+                    fetching: true
+                }
+            }
+        case actions.FETCH_USERS_SUCCESS:
+            return {
+                ...state,
+                users: {
+                    ...state.users,
+                    fetching: false,
+                    data: action.payload
                 }
             }
         default:

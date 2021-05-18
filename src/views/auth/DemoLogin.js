@@ -1,16 +1,36 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import * as API from '../../data/data'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import * as actions from '../../redux/actions'
 
 const DemoLogin = () => {
-    
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const users = useSelector(state => state.users.data)
+
+    const [credentials, setCredentials] = useState({
+        username: '',
+        password: ''
+    })
+
     useEffect(() => {
-        API.getAllUsers()
-        .then(res => {
-            console.log('[server res]', res)
-        })
-        .catch(e => console.error(e))
+        // dispatch(actions.fetchUsers())
     }, [])
+
+    const updateDemoSelection = (username, password) => {
+        setCredentials({ username: username, password: password })
+    }
+
+    const handleFormChange = (e) => {
+        setCredentials({ ...credentials, [e.target.name]: e.target.value })
+    }
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+
+        dispatch(actions.demoLogin(credentials, history))
+    }
     
     return (
         <>
@@ -20,13 +40,36 @@ const DemoLogin = () => {
                     <h1>Welcome message</h1>
 
                     <p>this is some info this is some info some info this is some info this is some info</p>
+
+                    {users.length === 0 && (
+                        <span>loading...</span>
+                    )}
+
+                    {users.length > 0 && users.map(user => {
+                        if (user.demo) {
+                            return <button key={user.id} onClick={() => updateDemoSelection(user.username, user.password)}>{user.username}</button>
+                        }
+                    })}
                 </Info>
 
                 <StyledForm>
-                    <input />
-                    <input />
+                    <input 
+                        type='text'
+                        name='username'
+                        placeholder='username'
+                        value={credentials.username}
+                        onChange={handleFormChange}
+                    />
 
-                    <button>login</button>
+                    <input 
+                        type='password'
+                        name='password'
+                        placeholder='password'
+                        value={credentials.password}
+                        onChange={handleFormChange}
+                    />
+
+                    <button onClick={handleLogin}>login</button>
                 </StyledForm>
             </DemoForm>
         </Container>
