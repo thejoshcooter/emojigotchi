@@ -40,10 +40,12 @@ const Container = styled.div`
 `
 
 const Logo = styled.div`
-
+    padding: 1rem;
 `
 
 const Navigation = styled.div`
+    margin-left: auto;
+
     a {
         margin: 0 1rem;
     }

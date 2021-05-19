@@ -16,7 +16,7 @@ const StartButton = () => {
 
 const Container = styled.div`
     width: 100%;
-    margin-top: 25vh;
+    margin-top: 5rem;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;

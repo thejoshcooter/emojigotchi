@@ -1,2 +1,6 @@
-export const dayColor = 'yellow'
-export const nightColor = 'gray' 
+export const PURPLE = '#845EC2'
+export const PINK = '#D65DB1'
+export const LIGHTPINK = '#FF6F91'
+export const ORANGE = '#FF9671'
+export const LIGHTORANGE = '#FFC75F'
+export const YELLOW = '#F9F871'
