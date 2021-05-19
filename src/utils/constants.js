@@ -15,6 +15,14 @@ export const SLEEP_ACTION_RATE = 10
 export const LOVE_DECAY_RATE = 2
 export const LOVE_ACTION_RATE = 10
 
+// STATUS LIMITERS
+export const HUNGER_LIMITER_LOW = null
+export const HUNGER_LIMITER_CRITICAL = null
+export const SLEEP_LIMITER_LOW = null
+export const SLEEP_LIMITER_CRITICAL = null
+export const LOVE_LIMITER_LOW = null
+export const LOVE_LIMITER_CRITICAL = null
+
 // STATUS NOTIFICATIONS
 export const statusNotifications = {
     egg: 'your pet is an egg, it will hatch soon',

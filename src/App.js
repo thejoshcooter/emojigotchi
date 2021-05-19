@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import PrivateRoute from './utils/privateRoute'
 
 import MainMenu from './components/MainMenu'
 import AuthenticationView from './views/auth'
@@ -11,8 +12,8 @@ const App = () => {
     <>
       <Route path='/' component={MainMenu} />
       <Route path='/auth/:type' component={AuthenticationView} />
-      <Route path='/dashboard' component={DashboardView} />
-      <Route path='/game' component={GameView} />
+      <PrivateRoute path='/dashboard' component={DashboardView} />
+      <PrivateRoute path='/game' component={GameView} />
     </>
   );
 }
