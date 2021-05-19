@@ -16,12 +16,14 @@ const MyGameCard = () => {
 
 const Container = styled.div`
     width: 100%;
-    height: 3rem;
+    height: 4rem;
+    margin: 1rem 0;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
-    background-color: red;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.2);
 `
 
 export default MyGameCard

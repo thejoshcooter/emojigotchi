@@ -24,7 +24,6 @@ const Leaderboard = () => {
 const Container = styled.div`
     width: 45%;
     border-radius: 3px;
-    border: 1px solid black;
     overflow: scroll;
 `
 
