@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import * as actions from '../../redux/actions'
+import { PINK } from '../../utils/colors'
 
 const LoginForm = () => {
     const history = useHistory()
@@ -25,13 +26,19 @@ const LoginForm = () => {
         <>
         <Container>
             <Welcome>
-                <h2>Welcome message!</h2>
+                <h2>Welcome back!</h2>
 
-                <p>the end is never the end is never the end is never the end is never the end is never the end is never the end is never the end is never the end</p>
+                <p>
+                    Ready to take care of your very own emojigotchi pet?
+                </p>
+
+                <p>
+                    Please login with your account credentials. If you don't have an account yet and want to
+                    check out how our game works, you can log in on a demo account!
+                </p>
             </Welcome>
 
             <FormSection>
-                <h2>Login</h2>
                 <form>
                     <input 
                         type='text'
@@ -59,9 +66,9 @@ const LoginForm = () => {
 const Container = styled.div`
     width: 70%;
     height: 30rem;
-    margin-top: 25vh;
+    margin-top: 20vh;
     border-radius: 3px;
-    border: 1px solid black;
+    border: 2px solid ${PINK};
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -74,6 +81,12 @@ const Welcome = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
+    background-color: ${PINK};
+
+    p {
+        text-align: center;
+    }
 `
 
 const FormSection = styled.div`
@@ -84,10 +97,37 @@ const FormSection = styled.div`
     align-items: center;
 
     form {
+        width: 100%;
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
+
+        input {
+            width: 80%;
+            height: 3rem;
+            margin: 0.5rem 0;
+            border-radius: 3px;
+            border: 2px solid #fff;
+            background-color: transparent;
+            padding: 0.2rem;
+            padding-left: 1rem;
+            color: #fff;
+        }
+
+        input::placeholder {
+            color: #fff;
+        }
+
+        button {
+            width: 85%;
+            height: 3rem;
+            margin-top: 1rem;
+            border-radius: 3px;
+            border: 2px solid #fff;
+            background-color: transparent;
+            color: #fff;
+        }
     }
 `
 
