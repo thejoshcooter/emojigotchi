@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Reset from './styles/Reset'
+import GlobalStyles from './styles/GlobalStyles'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
@@ -22,6 +23,7 @@ ReactDOM.render(
   <Router>
     <Provider store={store}>
       <Reset />
+      <GlobalStyles />
       <App />
     </Provider>
   </Router>,
