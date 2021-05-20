@@ -174,3 +174,18 @@ export const login = ({ username, password }, history) => {
         }
     }
 }
+
+export const FETCH_ALL_GAMES_REQUEST = 'FETCH_ALL_GAMES_REQUEST'
+export const FETCH_ALL_GAMES_SUCCESS = 'FETCH_ALL_GAMES_SUCCESS'
+export const FETCH_ALL_GAMES_ERROR = 'FETCH_ALL_GAMES_ERROR'
+export const fetchAllGames = () => {
+    return (dispatch) => {
+        dispatch({ type: FETCH_ALL_GAMES_REQUEST })
+
+        API.getAllGames()
+        .then(res => {
+            dispatch({ type: FETCH_ALL_GAMES_SUCCESS, payload: res })
+        })
+        .catch(e => dispatch({ type: FETCH_ALL_GAMES_ERROR, payload: e }))
+    }
+}

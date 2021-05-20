@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+import * as actions from '../../redux/actions'
 import Leaderboard from './Leaderboard'
 import MyGames from './MyGames'
 import StartButton from './StartButton'
 
 const DashboardView = () => {
+    const dispatch = useDispatch()
+    
+
+    useEffect(() => {
+        dispatch(actions.fetchAllGames())
+    }, [])
+    
     return (
         <>
         <Container>

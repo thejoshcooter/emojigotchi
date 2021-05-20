@@ -5,6 +5,10 @@ export const initialState = {
         fetching: false,
         data: []
     },
+    games: {
+        fetching: false,
+        data: []
+    },
     game: {
         cycle: 0,
         time: 'DAY',
@@ -80,6 +84,23 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 users: {
                     ...state.users,
+                    fetching: false,
+                    data: action.payload
+                }
+            }
+        case actions.FETCH_ALL_GAMES_REQUEST:
+            return {
+                ...state,
+                games: {
+                    ...state.games,
+                    fetching: true
+                }
+            }
+        case actions.FETCH_ALL_GAMES_SUCCESS:
+            return {
+                ...state,
+                games: {
+                    ...state.games,
                     fetching: false,
                     data: action.payload
                 }
