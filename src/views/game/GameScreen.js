@@ -17,12 +17,11 @@ const GameScreen = () => {
 const Container = styled.div`
     width: 100%;
     max-width: 1200px;
-    height: 80%;
+    height: 60%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 `
 
 export default GameScreen

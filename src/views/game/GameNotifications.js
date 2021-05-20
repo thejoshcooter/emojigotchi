@@ -37,7 +37,7 @@ const GameNotifications = () => {
     return (
         <>
         <Container>
-            {getNotification(status)}
+            <span>{getNotification(status)}</span>
         </Container>
         </>
     )
@@ -50,6 +50,13 @@ const Container = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+
+    span {
+        padding: 0 1rem;
+        border-radius: 3px;
+        background-color: rgba(255, 255, 255, 0.2);
+        font-size: 0.8rem;
+    }
 `
 
 export default GameNotifications

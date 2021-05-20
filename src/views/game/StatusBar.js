@@ -18,9 +18,10 @@ const Container = styled.div`
     width: 100%;
     max-width: 1200px;
     height: 10%;
+    margin-top: 2rem;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 `
 

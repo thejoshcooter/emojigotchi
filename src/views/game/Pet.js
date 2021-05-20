@@ -41,7 +41,7 @@ const Container = styled.div`
     align-items: center;
 
     i {
-        font-size: 20rem;
+        font-size: 15rem;
     }
 `
 
