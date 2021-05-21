@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 
 const LeaderCard = ({ rank, score, date, user }) => {
     const users = useSelector(state => state.users.data)
-    console.log(users)
 
     const getUsername = (id) => {
         let username = users.map(user => {

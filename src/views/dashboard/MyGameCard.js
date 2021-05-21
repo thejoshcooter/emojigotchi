@@ -1,15 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+import GameScreen from '../game/GameScreen'
 
-const MyGameCard = () => {
+const MyGameCard = ({ userId, score, date }) => {
+    const users = useSelector(state => state.users.data)
+    
+    const getUsername = (id) => {
+        let username = users.map(user => {
+            if (user.id === id) {
+                return user.username
+            }
+        })
+
+        return username
+    }
+
     return (
         <>
-        <Container>
-            <h2>my name</h2>
+        {users && (
+            <Container>
+                <h2>{getUsername(userId)}</h2>
 
-            <span>score</span>
-            <span>date</span>
-        </Container>
+                <span>{score}</span>
+                <span>{new Date(date).toDateString()}</span>
+            </Container>
+        )}
         </>
     )
 }
