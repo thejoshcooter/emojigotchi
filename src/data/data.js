@@ -41,7 +41,7 @@ let users = [
 let games = [
     {
         id: 0,
-        userId: 3,
+        userId: 0,
         date: Date.parse('April 4 2020'),
         score: 50
     },
@@ -71,7 +71,7 @@ let games = [
     },
     {
         id: 5,
-        userId: 3,
+        userId: 0,
         date: Date.parse('May 19 2021'),
         score: 264
     }

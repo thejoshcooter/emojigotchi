@@ -10,10 +10,6 @@ import * as actions from '../../redux/actions'
 const AuthenticationView = () => {
     const dispatch = useDispatch()
     const authType = useRouteMatch().params.type
-
-    useEffect(() => {
-        dispatch(actions.fetchUsers())
-    }, [])
     
     return (
         <>

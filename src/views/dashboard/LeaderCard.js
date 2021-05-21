@@ -1,17 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 
-const LeaderCard = () => {
+const LeaderCard = ({ rank, score, date, user }) => {
+    const users = useSelector(state => state.users.data)
+    console.log(users)
+
+    const getUsername = (id) => {
+        let username = users.map(user => {
+            if (user.id === id) {
+                return user.username
+            } 
+        })
+
+        return username
+    }
+
+    
     return (
         <>
-        <Container>
-            <h2>#R</h2>
-            <h2>Username</h2>
+        {users && (
+            <Container>
+                <h2>{rank}</h2>
+                <h2>{getUsername(user)}</h2>
 
-            <span>score</span>
+                <span>{score}</span>
 
-            <span>date</span>
-        </Container>
+                <span>{new Date(date).toDateString()}</span>
+            </Container>
+        )}
         </>
     )
 }
