@@ -19,7 +19,6 @@ const AuthTypeSelect = () => {
             <Container>
                     <Link to='/auth/demo'><button>demo</button></Link>
                     <Link to='/auth/login'><button>login</button></Link>
-                    <Link to='/auth/signup'><button>signup</button></Link>
             </Container>
         )}
 
@@ -36,8 +35,12 @@ const Container = styled.div`
     width: 15rem;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
+
+    @media (max-width: 800px) {
+        justify-content: flex-start;
+    }
 
     button {
         padding: 0.5rem;
@@ -45,6 +48,11 @@ const Container = styled.div`
         color: ${LIGHTORANGE};
         border-radius: 3px;
         border: 2px solid ${LIGHTORANGE};
+        margin: 0 0.5rem;
+
+        @media (max-width: 800px) {
+            margin: 0 0.5rem;
+        }
     }
 
     button:hover {

@@ -109,7 +109,7 @@ const DemoForm = styled.div`
         justify-content: center;
         align-items: center;
         height: auto;
-        width: 90%;
+        width: 70%;
     }
 `
 

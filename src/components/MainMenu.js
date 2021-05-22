@@ -24,6 +24,13 @@ const MainMenu = () => {
                 <AuthTypeSelect />
             </Login>
 
+            {/* <MobileMenu>
+                <Link to='/'>Home</Link>
+                <Link to='/dashboard'>Dashboard</Link>
+
+                <AuthTypeSelect />
+            </MobileMenu> */}
+
 
         </Container>
         </>
@@ -39,14 +46,26 @@ const Container = styled.div`
     align-items: center;
     background-color: rgba(255, 255, 255, 0.2);
 
+    @media (max-width: 800px) {
+        height: 10vh;
+    }
+
 `
 
 const Logo = styled.div`
     padding: 1rem;
+
+    @media (max-width: 800px) {
+        display: none;
+    }
 `
 
 const Navigation = styled.div`
-    margin-left: 5rem;    
+    margin-left: 5rem;   
+    
+    @media (max-width: 800px) {
+        margin-left: 0;
+    }
 
     a {
         margin: 0 0.5rem;
@@ -68,6 +87,40 @@ const Navigation = styled.div`
 const Login = styled.div`
     width: 10rem;
     margin-left: auto;
+
+    @media (max-width: 800px) {
+
+    }
 `
+
+// const MobileMenu = styled.div`
+//     @media (min-width: 800px) {
+//         display: none;
+//     }
+
+//     @media (max-width: 800px) {
+//         width: 100%;
+//         height: 100%;
+//         display: flex;
+//         flex-flow: column nowrap;
+//         justify-content: center;
+//         align-items: center;
+
+//         a {
+//             width: 100%;
+//             height: 3rem;
+//             margin: 0rem 0;
+//             display: flex;
+//             flex-flow: column nowrap;
+//             justify-content: center;
+//             align-items: center;
+//             text-decoration: none;
+//             color: #fff;
+//             padding: 1rem;
+//             border-radius: 3px;
+//             border: 2px solid transparent;
+//         }
+//     }
+// `
 
 export default MainMenu
