@@ -1,16 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import { ORANGE } from '../../utils/colors'
 
 const StartButton = () => {
     const history = useHistory()
+    const cycle = useSelector(state => state.game.cycle)
     
     return (
         <>
-        <Container>
-            <Link to='/game'><button>Start Game</button></Link>
-        </Container>
+        {cycle === 0 && (
+            <Container>
+                <Link to='/game'><button>Start Game</button></Link>
+            </Container>
+        )}
+
+        {cycle !== 0 && (
+            <Container>
+                <Link to='/game'><button>Return to game</button></Link>
+            </Container>
+        )}
         </>
     )
 }
