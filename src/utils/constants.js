@@ -6,14 +6,14 @@ export const MAD = 'MAD'
 export const DEAD = 'DEAD'
 
 // ACTION AND DECAY RATES
-export const HUNGER_DECAY_RATE = 20
+export const HUNGER_DECAY_RATE = 3
 export const FEED_ACTION_RATE = 10
 
-export const SLEEP_DECAY_RATE = 20
-export const SLEEP_ACTION_RATE = 10
+export const SLEEP_DECAY_RATE = 2
+export const SLEEP_ACTION_RATE = 15
 
-export const LOVE_DECAY_RATE = 20
-export const LOVE_ACTION_RATE = 10
+export const LOVE_DECAY_RATE = 5
+export const LOVE_ACTION_RATE = 20
 
 // STATUS LIMITERS
 export const HUNGER_LIMITER_LOW = null

@@ -34,14 +34,13 @@ export const updateStatus = (status) => {
 export const DECAY_STATS = 'DECAY_STATS'
 export const decayStats = () => {
     return (dispatch, getState) => {
-        const DECAY_RATE = 20
         let hunger = getState().game.hunger
         let sleep = getState().game.sleep
         let love = getState().game.love
 
-        hunger = hunger <= 0 ? 0 : hunger - DECAY_RATE
-        sleep = sleep <= 0 ? 0 : sleep - DECAY_RATE
-        love = love <= 0 ? 0 : love - DECAY_RATE
+        hunger = hunger <= 0 ? 0 : hunger - HUNGER_DECAY_RATE
+        sleep = sleep <= 0 ? 0 : sleep - SLEEP_DECAY_RATE
+        love = love <= 0 ? 0 : love - LOVE_DECAY_RATE
 
 
         const payload = { hunger, sleep, love  }
