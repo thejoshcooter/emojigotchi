@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import { dayColor, nightColor } from '../../utils/colors'
 import { DAY, NIGHT } from '../../utils/times'
+import { useLocation } from 'react-router-dom'
 import StatusBar from './StatusBar'
 import GameScreen from './GameScreen'
 import GameControls from './GameControls'
@@ -15,6 +16,7 @@ const GameView = () => {
     const CYCLE_RATE = 3000
 
     useEffect(() => {
+        console.log('*** game mounted **')
         let cycleInstance
 
         cycleInstance = setInterval(() => {

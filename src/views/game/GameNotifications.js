@@ -30,7 +30,7 @@ const GameNotifications = () => {
         } else if (love < 50 && love > 25) {
             return <p>{statusNotifications['love'].low}</p>
         } else {
-            return <p>no notification available</p>
+            return 
         }
     }
     

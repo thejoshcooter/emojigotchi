@@ -34,7 +34,7 @@ export const updateStatus = (status) => {
 export const DECAY_STATS = 'DECAY_STATS'
 export const decayStats = () => {
     return (dispatch, getState) => {
-        const DECAY_RATE = 2
+        const DECAY_RATE = 20
         let hunger = getState().game.hunger
         let sleep = getState().game.sleep
         let love = getState().game.love
@@ -187,5 +187,24 @@ export const fetchAllGames = () => {
             dispatch({ type: FETCH_ALL_GAMES_SUCCESS, payload: res })
         })
         .catch(e => dispatch({ type: FETCH_ALL_GAMES_ERROR, payload: e }))
+    }
+}
+
+export const SAVE_GAME_REQUEST = 'SAVE_GAME_REQUEST'
+export const SAVE_GAME_SUCCESS = 'SAVE_GAME_SUCCESS'
+export const SAVE_GAME_ERROR = 'SAVE_GAME_ERROR'
+export const saveGame = (userId, history) => {
+    return (dispatch, getState) => {
+        dispatch({ type: SAVE_GAME_REQUEST })
+        const score = getState().game.cycle
+        console.log('user id before api save', userId)
+
+        API.saveGame(userId, score)
+        .then(res => {
+            console.log('[server res]')
+            dispatch({ type: SAVE_GAME_SUCCESS, payload: res })
+            history.push('/dashboard')
+        })
+        .catch(e => dispatch({ type: SAVE_GAME_ERROR }))
     }
 }

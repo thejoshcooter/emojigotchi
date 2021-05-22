@@ -105,6 +105,15 @@ const reducer = (state = initialState, action) => {
                     data: action.payload
                 }
             }
+        case actions.SAVE_GAME_SUCCESS:
+            return {
+                ...state,
+                games: {
+                    ...state.games,
+                    data: action.payload
+                },
+                game: { ...initialState.game }
+            }
         default:
             return state
     }

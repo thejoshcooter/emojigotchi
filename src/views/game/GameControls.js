@@ -1,19 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import * as actions from '../../redux/actions'
-import { feed, sleep, love } from '../../redux/actions'
+import { feed, sleep, love, saveGame } from '../../redux/actions'
 import { ORANGE } from '../../utils/colors'
 
 const GameControls = () => {
     const dispatch = useDispatch()
+    const history = useHistory()
+    const status = useSelector(state => state.game.status)
+    const userId = JSON.parse(localStorage.getItem('authUser')).id
+    console.log('userId on load: ', userId)
+
     return (
         <>
-        <Container>
-            <button onClick={() => dispatch(feed())}>hunger</button>
-            <button onClick={() => dispatch(sleep())}>sleep</button>
-            <button onClick={() => dispatch(love())}>love</button>
-        </Container>
+        {status !== 'DEAD' && (
+            <Container>
+                <button onClick={() => dispatch(feed())}>hunger</button>
+                <button onClick={() => dispatch(sleep())}>sleep</button>
+                <button onClick={() => dispatch(love())}>love</button>
+            </Container>
+        )}
+
+        {status === 'DEAD' && (
+            <Container>
+                <button onClick={() => dispatch(saveGame(userId, history))}>return to dashboard</button>
+            </Container>
+        )}
         </>
     )
 }

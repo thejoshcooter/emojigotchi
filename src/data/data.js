@@ -89,3 +89,20 @@ export const getAllGames = () => {
         setTimeout(() => res(games), 1000)
     })
 }
+
+const formatGame = (userId, score) => {
+    let newId = games.length
+
+    return { id: newId, userId: userId, date: new Date(), score: score }
+}
+
+export const saveGame = (userId, score) => {
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            const gameToSave = formatGame(userId, score)
+            games.push(gameToSave)
+            console.log('new games', games)
+            res(games)
+        }, 1000)
+    })
+}

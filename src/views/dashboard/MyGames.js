@@ -5,6 +5,8 @@ import MyGameCard from './MyGameCard'
 
 const MyGames = () => {
     const games = useSelector(state => state.games.data)
+    const authUser = JSON.parse(localStorage.getItem('authUser'))
+    console.log('authuser', authUser)
     
     return (
         <>
@@ -14,7 +16,7 @@ const MyGames = () => {
             <Container>
                 <h2>My Games</h2>
 
-                {games.sort((a, b) => b.score - a.score).filter(user => user.userId === 0).map(game => (
+                {games.sort((a, b) => b.date - a.date).filter(user => user.userId === authUser.id).map(game => (
                     <MyGameCard 
                         key={game.id}
                         userId={game.userId}
