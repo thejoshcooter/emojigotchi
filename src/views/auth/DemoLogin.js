@@ -88,6 +88,10 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 20vh;
+
+    @media (max-width: 800px) {
+        margin-top: 5rem;
+    }
 `
 
 const DemoForm = styled.div`
@@ -99,6 +103,14 @@ const DemoForm = styled.div`
     align-items: stretch;
     border-radius: 3px;
     border: 2px solid ${ORANGE};
+
+    @media (max-width: 800px) {
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        width: 90%;
+    }
 `
 
 const Info = styled.div`
@@ -108,6 +120,11 @@ const Info = styled.div`
     justify-content: center;
     align-items: center;
     background-color: ${ORANGE};
+
+    @media (max-width: 800px) {
+        width: 100%;
+        padding: 2rem 0;
+    }
 
     p {
         padding: 1rem;
@@ -138,6 +155,11 @@ const StyledForm = styled.form`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 800px) {
+        width: 100%;
+        padding: 2rem 0;
+    }
 
     input {
         width: 80%;
