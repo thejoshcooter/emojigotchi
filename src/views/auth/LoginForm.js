@@ -73,6 +73,15 @@ const Container = styled.div`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: stretch;
+
+    @media (max-width: 800px) {
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        padding: 0rem;
+        margin-top: 10vh;
+    }
 `
 
 const Welcome = styled.div`
@@ -84,8 +93,19 @@ const Welcome = styled.div`
     padding: 1rem;
     background-color: ${PINK};
 
+    @media (max-width: 800px) {
+        width: 100%;
+        padding: 0rem;
+        padding-bottom: 2rem;
+    }
+
     p {
         text-align: center;
+
+        @media (max-width: 800px) {
+            padding: 1rem;
+            margin: 0;
+        }
     }
 `
 
@@ -96,12 +116,20 @@ const FormSection = styled.div`
     justify-content: center;
     align-items: center;
 
+    @media (max-width: 800px) {
+        width: 100%;
+    }
+
     form {
         width: 100%;
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
+
+        @media (max-width: 800px) {
+            padding: 2rem 0;
+        }
 
         input {
             width: 80%;
