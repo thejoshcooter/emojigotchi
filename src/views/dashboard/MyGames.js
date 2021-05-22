@@ -35,6 +35,13 @@ const Container = styled.div`
     width: 45%;
     border-radius: 3px;
     overflow: scroll;
+
+    @media (max-width: 800px) {
+        width: 80%;
+        max-height: 20rem;
+        padding-top: 2rem;
+        padding-bottom: 0;
+    }
 `
 
 export default MyGames

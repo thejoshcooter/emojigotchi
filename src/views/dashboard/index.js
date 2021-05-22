@@ -41,6 +41,13 @@ const Hud = styled.div`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: stretch;
+
+    @media (max-width: 800px) {
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        height: auto
+    }
 `
 
 export default DashboardView
