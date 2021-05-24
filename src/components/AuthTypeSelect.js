@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
-import { LIGHTORANGE } from '../utils/colors'
+import { ORANGE } from '../utils/colors'
 
 const AuthTypeSelect = () => {
     const userAuthenticated = JSON.parse(localStorage.getItem('authUser'))
@@ -35,19 +35,20 @@ const Container = styled.div`
     width: 15rem;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 
     @media (max-width: 800px) {
-        justify-content: flex-start;
+        justify-content: flex-end;
     }
 
     button {
+        width: 6rem;
         padding: 0.5rem;
-        background-color: transparent;
-        color: ${LIGHTORANGE};
+        background-color: ${ORANGE};
+        color: #fff;
         border-radius: 3px;
-        border: 2px solid ${LIGHTORANGE};
+        border: 2px solid ${ORANGE};
         margin: 0 0.5rem;
 
         @media (max-width: 800px) {
@@ -56,8 +57,8 @@ const Container = styled.div`
     }
 
     button:hover {
-        background-color: ${LIGHTORANGE};
-        color: #fff;
+        background-color: transparent;
+        color: ${ORANGE};
         transition: 0.5s;
     }
 `

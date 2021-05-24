@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import AuthTypeSelect from './AuthTypeSelect'
-import { PINK } from '../utils/colors'
+import { ORANGE } from '../utils/colors'
 
 const MainMenu = () => {
     const userAuthenticated = localStorage.getItem('authUser')
@@ -78,49 +78,14 @@ const Navigation = styled.div`
 
     a:hover {
         color: #fff;
-        border: 2px solid ${PINK};
-        background-color: ${PINK};
+        border: 2px solid ${ORANGE};
+        background-color: ${ORANGE};
         transition: 0.5s;
     }
 `
 
 const Login = styled.div`
-    width: 10rem;
     margin-left: auto;
-
-    @media (max-width: 800px) {
-
-    }
 `
-
-// const MobileMenu = styled.div`
-//     @media (min-width: 800px) {
-//         display: none;
-//     }
-
-//     @media (max-width: 800px) {
-//         width: 100%;
-//         height: 100%;
-//         display: flex;
-//         flex-flow: column nowrap;
-//         justify-content: center;
-//         align-items: center;
-
-//         a {
-//             width: 100%;
-//             height: 3rem;
-//             margin: 0rem 0;
-//             display: flex;
-//             flex-flow: column nowrap;
-//             justify-content: center;
-//             align-items: center;
-//             text-decoration: none;
-//             color: #fff;
-//             padding: 1rem;
-//             border-radius: 3px;
-//             border: 2px solid transparent;
-//         }
-//     }
-// `
 
 export default MainMenu
