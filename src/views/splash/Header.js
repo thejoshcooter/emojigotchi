@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { ORANGE } from '../../utils/colors'
 
 const Header = () => {
@@ -12,7 +13,7 @@ const Header = () => {
 
             <p>Want to take the app for a spin?</p>
 
-            <button>Try our demo!</button>
+            <Link to='/auth/demo'><button>Try our demo!</button></Link>
         </Container>
         </>
     )
@@ -62,6 +63,11 @@ const Container = styled.div`
         border: 2px solid ${ORANGE};
         color: ${ORANGE};
         transition: 0.5s;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
     }
 `
 

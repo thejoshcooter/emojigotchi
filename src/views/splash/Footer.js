@@ -16,9 +16,9 @@ const Footer = () => {
                     <h3>Contact Me</h3>
 
                     <div className='links'>
-                        <a href=''>Twitter</a>
-                        <a href=''>Linked In</a>
-                        <a href=''>Github</a>
+                        <a href='http://www.twitter.com/thejoshcooter'>Twitter</a>
+                        <a href='https://www.linkedin.com/in/joshcooter/'>Linked In</a>
+                        <a href='https://github.com/thejoshcooter/emojigotchi'>Github</a>
                     </div>
                 </div>
             </Content>
